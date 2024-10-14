@@ -36,7 +36,7 @@ export class RenpyTaskProvider implements vscode.TaskProvider {
     }
 
     private getTask(definition: RenpyTaskDefinition): vscode.Task {
-        let commandLine = Configuration.getRenpyExecutablePath() + " " + getWorkspaceFolder() + " " + definition.command;
+        let commandLine = "\"" + Configuration.getRenpyExecutablePath() + "\" \"" + getWorkspaceFolder() + "\" " + definition.command;
         if (definition.args) {
             commandLine += " " + definition.args.join(" ");
         }
